@@ -1,0 +1,11 @@
+### Task 12: Ask SkinSense `/ask` + voice
+- Header: "Ask SkinSense" + "Ask about your routine, a product, or an ingredient."
+- Context chip area: if `?topic=` or `?product=` → chip "Discussing: X" + clear (×) button (updates state, removes param).
+- Suggested question cards (from real user problems): "What does niacinamide do?", "Why is this step in my routine?", "Can I add this product?", "Why do these two products feel different?" — tap to send.
+- Messages: user (right, ink block), SkinSense (left, surface card). Backend-sourced answers → badge "From SkinSense knowledge"; demo → `StatusBanner tone="demo"` inside message. Input bar: textarea + Send; Enter submits (Shift+Enter newline).
+- Voice: mic button in input bar → `VoicePanel` modal/inline strong central interaction:
+  - states: ready → listening (big centered mic, animated dots `● ● ●`, "Ask naturally…", [Stop]) → processing ("Thinking…" with transcript shown) → answer appended to chat (same pipeline) → speaking (if speechSynthesis on, shows "Speaking" + Stop) → error / cancelled.
+  - On transcript: show "You said: “…”" in chat as user message before answer.
+  - `?voice=1` opens VoicePanel automatically.
+  - unsupported → inline `StatusBanner tone="uncertain"` "Voice isn't available right now. You can ask SkinSense using text instead."
+- Uses `askSkinSense` for every message (text and voice identical path).

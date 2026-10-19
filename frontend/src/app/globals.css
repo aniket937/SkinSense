@@ -1,0 +1,220 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #f5efe6;
+  --color-surface: #fffdf9;
+  --color-ink: #1c1917;
+  --color-ink-soft: #57534e;
+  --color-ink-faint: #a8a29e;
+  --color-line: #1c1917;
+  --color-clay: #d2603a;
+  --color-clay-deep: #b14a28;
+  --color-sage: #4f6b54;
+  --color-amber: #a16207;
+  --color-rust: #9a3412;
+  --color-blush: #f0d9cd;
+  --color-moss: #e2ebe1;
+  --color-honey: #f6e7c8;
+  --color-sky: #dce7ef;
+  --font-display: Georgia, "Times New Roman", Times, serif;
+  --font-body: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+}
+
+.brutal {
+  border: 2px solid var(--color-line);
+  background: var(--color-surface);
+}
+
+.brutal-shadow {
+  box-shadow: 4px 4px 0 var(--color-line);
+}
+
+.brutal-shadow-sm {
+  box-shadow: 2px 2px 0 var(--color-line);
+}
+
+.brutal-shadow-lg {
+  box-shadow: 6px 6px 0 var(--color-line);
+}
+
+.brutal-hover {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.brutal-hover:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--color-line);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 2px solid var(--color-line);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1.2;
+  cursor: pointer;
+  min-height: 44px;
+  padding: 0.625rem 1.25rem;
+  box-shadow: 4px 4px 0 var(--color-line);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  text-align: center;
+}
+
+.btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--color-line);
+}
+
+.btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--color-line);
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 4px 4px 0 var(--color-line);
+}
+
+.btn-primary {
+  background: var(--color-clay-deep);
+  color: #fffdf9;
+}
+
+.btn-danger {
+  background: var(--color-rust);
+  color: #fffdf9;
+}
+
+.btn-quiet {
+  background: transparent;
+  box-shadow: none;
+  border-color: transparent;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+
+.btn-quiet:hover {
+  transform: none;
+  box-shadow: none;
+  color: var(--color-clay-deep);
+}
+
+.btn-sm {
+  min-height: 36px;
+  padding: 0.375rem 0.875rem;
+  font-size: 0.875rem;
+  box-shadow: 3px 3px 0 var(--color-line);
+}
+
+.btn-sm:hover {
+  box-shadow: 5px 5px 0 var(--color-line);
+}
+
+.btn-lg {
+  min-height: 52px;
+  padding: 0.875rem 1.75rem;
+  font-size: 1.05rem;
+}
+
+.choice {
+  border: 2px solid var(--color-line);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  box-shadow: 3px 3px 0 var(--color-line);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.choice:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--color-line);
+}
+
+.choice[aria-pressed="true"] {
+  background: var(--color-blush);
+  border-color: var(--color-clay);
+  box-shadow: 3px 3px 0 var(--color-clay);
+}
+
+.field {
+  border: 2px solid var(--color-line);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  padding: 0.625rem 0.875rem;
+  width: 100%;
+  min-height: 44px;
+  font-size: 1rem;
+  box-shadow: 2px 2px 0 var(--color-line);
+}
+
+.field::placeholder {
+  color: var(--color-ink-faint);
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-ink-soft);
+}
+
+.display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--color-clay);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brutal-hover,
+  .btn,
+  .choice,
+  .field {
+    transition: none !important;
+  }
+
+  .btn:hover,
+  .choice:hover,
+  .brutal-hover:hover {
+    transform: none !important;
+  }
+
+  .animate-spin,
+  .animate-pulse {
+    animation: none !important;
+  }
+}

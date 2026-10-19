@@ -1,0 +1,9 @@
+### Task 14: Settings `/settings` (incl. privacy/data/about)
+Anchored sections (`#profile #privacy #data`), each a Card:
+- **Profile** — summary + link `/skin`.
+- **Preferences** — routine preferences chips (local), default landing = dashboard.
+- **Language** — select (English/हिन्दी/मराठी) saved to prefs (honest note: "Interface language preference is saved on this device. SkinSense's answers are currently in English.").
+- **Voice** — enable voice output toggle + STT language select + "Test voice" button (speechSynthesis sample) — honest note that voice output uses your device's built-in voice.
+- **Privacy** card (plain language): What SkinSense stores (profile fields you entered: list them; routine history + journal entries on this device; nothing else), Images (product photos are processed on this device — the label-reading service isn't connected, so photos aren't uploaded), Voice (voice input is transcribed by your browser's built-in speech service; SkinSense doesn't store audio), Conversations (Ask history lives in this tab only and clears when you close it), no unsupported claims.
+- **Data** card: "Delete your SkinSense data" danger button → Modal: title "Delete your SkinSense data?" body lists exactly what's deleted (this device's routine history, journal, preferences, onboarding notes, chat) + "Your saved profile on the server (skin type, concerns, products) can't be deleted from this screen yet — it was created as a single default profile." checkbox "I understand this can't be undone" enables [Delete data] → clears keys, shows success banner "Local data deleted." No dark patterns (Cancel prominent, equal).
+- **About SkinSense**: what it is / is not ("SkinSense is an educational decision-support companion. It is not a dermatologist, not a diagnosis tool, not a store.") + version from health endpoint.
